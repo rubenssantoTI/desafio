@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.desafioconcrete.persistence.service.CadastroIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-03-24T21:44:45" hostname="Rubens-PC" time="4.139">
+  <properties/>
+  <testcase name="create" classname="org.desafioconcrete.persistence.service.CadastroIntegrationTest" time="4.103"/>
+  <testcase name="findUserByEmail" classname="org.desafioconcrete.persistence.service.CadastroIntegrationTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[mar 24, 2017 6:44:45 PM org.springframework.context.support.GenericApplicationContext prepareRefresh
+INFORMAÇÕES: Refreshing org.springframework.context.support.GenericApplicationContext@36d397cd: startup date [Fri Mar 24 18:44:45 BRT 2017]; root of context hierarchy
+mar 24, 2017 6:44:45 PM org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor <init>
+INFORMAÇÕES: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+mar 24, 2017 6:44:46 PM org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker postProcessAfterInitialization
+INFORMAÇÕES: Bean 'persistenceJPAConfig' of type [class desafio.concrete.config.PersistenceJPAConfig$$EnhancerBySpringCGLIB$$be3f78e7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+mar 24, 2017 6:44:46 PM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
+INFORMAÇÕES: Loaded JDBC driver: org.hsqldb.jdbcDriver
+mar 24, 2017 6:44:46 PM org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean createNativeEntityManagerFactory
+INFORMAÇÕES: Building JPA container EntityManagerFactory for persistence unit 'default'
+mar 24, 2017 6:44:46 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+mar 24, 2017 6:44:46 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {4.3.6.Final}
+mar 24, 2017 6:44:46 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+mar 24, 2017 6:44:46 PM org.hibernate.cfg.Environment buildBytecodeProvider
+INFO: HHH000021: Bytecode provider name : javassist
+mar 24, 2017 6:44:46 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+mar 24, 2017 6:44:47 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+mar 24, 2017 6:44:47 PM org.hibernate.engine.jdbc.internal.LobCreatorBuilder useContextualLobCreation
+INFO: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+mar 24, 2017 6:44:47 PM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory <init>
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+mar 24, 2017 6:44:47 PM org.hibernate.validator.internal.util.Version <clinit>
+INFO: HV000001: Hibernate Validator 5.1.1.Final
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: HHH000228: Running hbm2ddl schema update
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: HHH000102: Fetching database metadata
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: HHH000396: Updating schema
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.DatabaseMetadata getTableMetadata
+INFO: HHH000262: Table not found: Telefone
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.DatabaseMetadata getTableMetadata
+INFO: HHH000262: Table not found: Usuario
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.DatabaseMetadata getTableMetadata
+INFO: HHH000262: Table not found: Telefone
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.DatabaseMetadata getTableMetadata
+INFO: HHH000262: Table not found: Usuario
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.DatabaseMetadata getTableMetadata
+INFO: HHH000262: Table not found: Telefone
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.DatabaseMetadata getTableMetadata
+INFO: HHH000262: Table not found: Usuario
+mar 24, 2017 6:44:48 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: HHH000232: Schema update complete
+]]></system-err>
+</testsuite>

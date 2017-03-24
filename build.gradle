@@ -1,0 +1,87 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  jcenter()
+}
+
+jettyRun.webAppSourceDirectory = file("src/webapp")
+
+jettyRun{
+	contextPath = "desafioconcretesolution"
+	httpPort = 8080
+}
+
+jettyRunWar{
+	contextPath = "desafioconcretesolution"
+	httpPort = 8080
+}
+
+dependencies {
+  
+	compile group: 'com.google.guava', name: 'guava', version: '20.0'
+    compile 'javax.servlet:jstl:1.2'
+	compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+	compile("javax.inject:javax.inject:1")
+    
+    compile("org.springframework:spring-webmvc:4.1.4.RELEASE")
+	compile group: 'org.springframework', name: 'spring-orm', version: '4.0.5.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context', version: '4.0.5.RELEASE'
+	compile group: 'org.springframework', name: 'spring-test', version: '4.0.5.RELEASE'
+	compile group: 'org.springframework', name: 'spring-core', version: '4.2.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-beans', version: '4.3.7.RELEASE'
+	compile group: 'org.springframework.security', name: 'spring-security-config', version: '3.2.0.RELEASE'
+	compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.1.2.RELEASE'
+	compile group: 'org.springframework.security', name: 'org.springframework.security.web', version: '3.1.0.RELEASE'
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.6.0'
+	
+	
+	
+	compile group: 'org.hsqldb', name: 'hsqldb-j5', version: '2.2.4'
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.3.6.Final'
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.6.Final'
+	compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.1.1.Final'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.2'
+	
+	compile group: 'junit', name: 'junit-dep', version: '4.11'
+	testCompile 'junit:junit:4.12'
+	
+	compile group: 'org.javassist', name: 'javassist', version: '3.18.1-GA'
+	compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
+	compile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
+	compile group: 'org.mockito', name: 'mockito-core', version: '2.6.9'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.6'
+	compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+	
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.6'
+	compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.12'
+	compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.8.6'
+	compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
+	compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '4.33'
+	
+	
+	
+}
+
+war {
+    from 'src/webapp'
+    webInf { from 'src/webapp' } 
+    webXml = file('src/webapp/WEB-INF/Web.xml')
+    version =  '2.0'
+}
+
+eclipse {
+  wtp {
+    component {
+      contextPath = 'desafioconcretesolution'
+    }
+  }
+}
+
+
+
