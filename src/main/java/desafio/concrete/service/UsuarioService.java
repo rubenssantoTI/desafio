@@ -1,15 +1,11 @@
 package desafio.concrete.service;
 
-import java.util.List;
-
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import desafio.concrete.dao.IUsuarioDao;
-import desafio.concrete.model.Usuario;
+import desafio.concrete.model.User;
 
 @Service
 @Transactional
@@ -24,24 +20,44 @@ public class UsuarioService {
     public UsuarioService() {
         super();
     }
-
-	public void create(Usuario entity) {
+    
+    /**
+     * Create a User
+     * @param entity
+     */
+	public void create(User entity) {
 		entity.setToken(jwtService.createJWT(entity));
 		dao.create(entity);
 	}
 	
-	public Usuario update(Usuario entity) {
+	/**
+     * update a User
+     * @param entity
+     */
+	public User update(User entity) {
 		return dao.update(entity);
 	}
 
-    public Usuario find(final long id) {
+	/**
+     * Find a User by id
+     * @param entity
+     */
+    public User find(final long id) {
         return dao.findOne(id);
     }
     
-    public Usuario findUserByEmail(final Usuario entity) {
+    /**
+     * Find a User by email
+     * @param entity
+     */
+    public User findUserByEmail(final User entity) {
         return dao.findUserByEmail(entity);
     }
     
+    /**
+     * Verify is equal password
+     * @param entity
+     */
     public Boolean isEqualsPassword(String pass1, String pass2) {
     	return pass1.equals(pass2); 
     }

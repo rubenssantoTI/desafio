@@ -10,6 +10,10 @@ repositories {
   jcenter()
 }
 
+configurations {
+  runtimeOnly
+}
+
 jettyRun.webAppSourceDirectory = file("src/webapp")
 
 jettyRun{
@@ -63,15 +67,17 @@ dependencies {
 	compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.8.6'
 	compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
 	compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '4.33'
-	
-	
+	runtimeOnly 'org.mortbay.jetty:jetty-runner:8.1.1.v20120215'
 	
 }
+
+task stage(dependsOn: ['clean', 'war','copyToLib'])
+build.mustRunAfter clean
 
 war {
     from 'src/webapp'
     webInf { from 'src/webapp' } 
-    webXml = file('src/webapp/WEB-INF/Web.xml')
+    webXml = file('src/webapp/WEB-INF/web.xml') 
     version =  '2.0'
 }
 
@@ -79,6 +85,18 @@ eclipse {
   wtp {
     component {
       contextPath = 'desafioconcretesolution'
+    }
+  }
+}
+	
+task copyToLib << {
+  copy {
+    from configurations.runtimeOnly.copy().setTransitive(false)
+    into "$buildDir/libs"
+    rename { name ->
+      def artifacts = configurations.runtimeOnly.resolvedConfiguration.resolvedArtifacts
+      def artifact = artifacts.find { it.file.name == name }
+      "${artifact.name}.${artifact.extension}"
     }
   }
 }

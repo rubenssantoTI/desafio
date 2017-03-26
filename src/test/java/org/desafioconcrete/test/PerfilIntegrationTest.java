@@ -10,7 +10,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import desafio.concrete.config.PersistenceJPAConfig;
 import desafio.concrete.dao.UsuarioDao;
-import desafio.concrete.model.Usuario;
+import desafio.concrete.model.User;
 import desafio.concrete.service.JwtService;
 import desafio.concrete.service.UsuarioService;
 
@@ -24,13 +24,19 @@ public class PerfilIntegrationTest {
 			
 	@Test
 	public final void tokenNotFound() {
-		Assert.assertFalse(jwtService.isEqualsToken("XXXX", "sdsadsad"));
+		User user1 = new User();
+		user1.setEmail("teste1@gmail.com");
+		user1.setToken(jwtService.createJWT(user1));
+		
+		User user2 = new User();
+		user2.setToken("teste1@gmail.com");
+		user2.setToken(jwtService.createJWT(user2));
+		
+		Assert.assertFalse(jwtService.isEqualsToken(user1.getToken(), user2.getToken()));
 	}
 	
 	@Test
 	public final void tokenInvalid() {
-		Usuario user = new Usuario();
-		user.setToken("XXdsfdskjsdsa");
 		Assert.assertFalse(jwtService.isTokenValido("XXdsfdskjsdsa"));
 	}
 	

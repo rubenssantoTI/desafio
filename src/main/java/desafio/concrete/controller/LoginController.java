@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import desafio.concrete.exceptions.PasswordNotFoundException;
 import desafio.concrete.exceptions.UserNotFoundException;
-import desafio.concrete.model.Usuario;import desafio.concrete.service.JwtService;
+import desafio.concrete.model.User;import desafio.concrete.service.JwtService;
 import desafio.concrete.service.UsuarioService;
 
 @RestController
@@ -26,8 +26,8 @@ public class LoginController {
 	private UsuarioService usuarioService;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public@ResponseBody ResponseEntity<Usuario> authenticate(@RequestBody Usuario user) {
-		Usuario userSaved = usuarioService.findUserByEmail(user);
+	public@ResponseBody ResponseEntity<User> authenticate(@RequestBody User user) {
+		User userSaved = usuarioService.findUserByEmail(user);
 		if (userSaved == null) {
 			throw new UserNotFoundException();
 		} else if (!this.isEqualsPassword(user, userSaved)) {
@@ -44,7 +44,7 @@ public class LoginController {
 	 * @param user2
 	 * @return
 	 */
-	private void atualizarUsuario(Usuario userSaved) {
+	private void atualizarUsuario(User userSaved) {
 		userSaved.setToken(jwtService.createJWT(userSaved));
 		usuarioService.update(userSaved);
 	}
@@ -56,7 +56,7 @@ public class LoginController {
 	 * @param user2
 	 * @return
 	 */
-	private Boolean isEqualsPassword(Usuario user1, Usuario user2) {
+	private Boolean isEqualsPassword(User user1, User user2) {
 		return usuarioService.isEqualsPassword(user1.getPassword(),user2.getPassword());
 		
 	}

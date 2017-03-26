@@ -1,7 +1,5 @@
 package desafio.concrete.model;
 
-import org.springframework.http.HttpStatus;
-
 public class ExceptionJSONInfo {
 	
 	private String HttpStatus;

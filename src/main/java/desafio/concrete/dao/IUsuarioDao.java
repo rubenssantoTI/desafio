@@ -1,10 +1,8 @@
 package desafio.concrete.dao;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
-import desafio.concrete.model.Usuario;
+import desafio.concrete.model.User;
 
 @Repository
 public interface IUsuarioDao {
@@ -14,32 +12,26 @@ public interface IUsuarioDao {
      * @param id
      * @return
      */
-    Usuario findOne(long id);
-    /**
-     * Find all users
-     * 
-     * @return
-     */
-    List<Usuario> findAll();
+    User findOne(long id);
     /**
      * Create user
      * 
      * @param entity
      */
-    void create(Usuario entity);
+    void create(User entity);
     /**
      * update user
      * 
      * @param entity
      * @return
      */
-    Usuario update(Usuario entity);
+    User update(User entity);
     /**
      * Remove
      * 
      * @param entity
      */
-    void delete(Usuario entity);
+    void delete(User entity);
     /**
      * Remove by id
      * 
@@ -51,6 +43,6 @@ public interface IUsuarioDao {
     * @param enntity
     * @return
     */
-    Usuario findUserByEmail(Usuario enntity);
+    User findUserByEmail(User enntity);
     
 }

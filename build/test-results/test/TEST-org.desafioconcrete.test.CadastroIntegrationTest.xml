@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.desafioconcrete.test.CadastroIntegrationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-03-26T03:15:37" hostname="Rubens-PC" time="3.95">
+  <properties/>
+  <testcase name="create" classname="org.desafioconcrete.test.CadastroIntegrationTest" time="3.924"/>
+  <testcase name="whenSameEmailIsCreatedTwice" classname="org.desafioconcrete.test.CadastroIntegrationTest" time="0.015"/>
+  <testcase name="createToken" classname="org.desafioconcrete.test.CadastroIntegrationTest" time="0.002"/>
+  <testcase name="findUserByEmail" classname="org.desafioconcrete.test.CadastroIntegrationTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[mar 26, 2017 12:15:38 AM org.springframework.context.support.GenericApplicationContext prepareRefresh
+INFORMAÇÕES: Refreshing org.springframework.context.support.GenericApplicationContext@a465005: startup date [Sun Mar 26 00:15:38 BRT 2017]; root of context hierarchy
+mar 26, 2017 12:15:38 AM org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor <init>
+INFORMAÇÕES: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+mar 26, 2017 12:15:38 AM org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker postProcessAfterInitialization
+INFORMAÇÕES: Bean 'persistenceJPAConfig' of type [class desafio.concrete.config.PersistenceJPAConfig$$EnhancerBySpringCGLIB$$7ee9a946] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+mar 26, 2017 12:15:38 AM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
+INFORMAÇÕES: Loaded JDBC driver: org.hsqldb.jdbcDriver
+mar 26, 2017 12:15:38 AM org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean createNativeEntityManagerFactory
+INFORMAÇÕES: Building JPA container EntityManagerFactory for persistence unit 'default'
+mar 26, 2017 12:15:38 AM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+mar 26, 2017 12:15:38 AM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {4.3.6.Final}
+mar 26, 2017 12:15:38 AM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+mar 26, 2017 12:15:38 AM org.hibernate.cfg.Environment buildBytecodeProvider
+INFO: HHH000021: Bytecode provider name : javassist
+mar 26, 2017 12:15:38 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+mar 26, 2017 12:15:39 AM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+mar 26, 2017 12:15:39 AM org.hibernate.engine.jdbc.internal.LobCreatorBuilder useContextualLobCreation
+INFO: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+mar 26, 2017 12:15:39 AM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory <init>
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+mar 26, 2017 12:15:39 AM org.hibernate.validator.internal.util.Version <clinit>
+INFO: HV000001: Hibernate Validator 5.1.1.Final
+mar 26, 2017 12:15:40 AM org.hibernate.tool.hbm2ddl.SchemaExport execute
+INFO: HHH000227: Running hbm2ddl schema export
+mar 26, 2017 12:15:40 AM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table Phone drop constraint FK_28hbc0l6xdqcl17itc57lf68g
+mar 26, 2017 12:15:40 AM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: user lacks privilege or object not found: PUBLIC.PHONE
+mar 26, 2017 12:15:40 AM org.hibernate.tool.hbm2ddl.SchemaExport execute
+INFO: HHH000230: Schema export complete
+mar 26, 2017 12:15:41 AM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+WARN: SQL Error: -104, SQLState: 23505
+mar 26, 2017 12:15:41 AM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+ERROR: integrity constraint violation: unique constraint or index violation; UK_E6GKQUNXAJVYXL5UCTPL2VL2P table: USER
+]]></system-err>
+</testsuite>

@@ -1,20 +1,18 @@
 package desafio.concrete.dao;
 
-import java.util.List;
-
 import javax.persistence.NoResultException;
 
 import org.springframework.stereotype.Repository;
 
-import desafio.concrete.model.Usuario;
+import desafio.concrete.model.User;
 
 @Repository
-public class UsuarioDao extends AbstractJpaDAO<Usuario> implements IUsuarioDao {
+public class UsuarioDao extends AbstractJpaDAO<User> implements IUsuarioDao {
 
     public UsuarioDao() {
         super();
 
-        setClazz(Usuario.class);
+        setClazz(User.class);
     }
     
     /**
@@ -22,18 +20,12 @@ public class UsuarioDao extends AbstractJpaDAO<Usuario> implements IUsuarioDao {
      * @param enntity
      * @return
      */
-    public Usuario findUserByEmail(Usuario enntity) {
-    	Usuario user = null;
+    public User findUserByEmail(User enntity) {
+    	User user = null;
     	try {
-    		user = (Usuario) super.entityManager.createNamedQuery("findUserByEmail").
+    		user = (User) super.entityManager.createNamedQuery("findUserByEmail").
     				setParameter("email", enntity.getEmail()).getSingleResult();
     	} catch(NoResultException e) {}
 		return user;
     }
-    
-    @SuppressWarnings("unchecked")
-    public List<Usuario> findAll() {
-        return entityManager.createQuery("select u from Usuario u LEFT JOIN FETCH  u.telefones t").getResultList();
-    }
-
 }

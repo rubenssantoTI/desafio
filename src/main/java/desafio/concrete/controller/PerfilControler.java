@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import desafio.concrete.exceptions.InvalidTokenException;
-import desafio.concrete.model.Usuario;
+import desafio.concrete.model.User;
 import desafio.concrete.service.JwtService;
 import desafio.concrete.service.UsuarioService;
 
@@ -29,9 +29,9 @@ public class PerfilControler {
 	private JwtService jwtService; 
 
 	@RequestMapping(value = "/verify", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<Usuario> login(@RequestBody Usuario user, HttpServletRequest request) {
+	public @ResponseBody ResponseEntity<User> login(@RequestBody User user, HttpServletRequest request) {
 		String token = request.getHeader("Authorization");
-		Usuario userSaved = usuarioService.find(user.getId());
+		User userSaved = usuarioService.find(user.getId());
 		if (!StringUtils.isNotBlank(token) || !jwtService.isEqualsToken(userSaved.getToken(), token)) {
 			 throw new InvalidTokenException(); 
 		} else if (!jwtService.isTokenValido(token)) {

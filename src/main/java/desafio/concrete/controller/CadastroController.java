@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import desafio.concrete.exceptions.ExistingEmail;
-import desafio.concrete.model.Usuario;
-import desafio.concrete.service.JwtService;
+import desafio.concrete.model.User;
 import desafio.concrete.service.UsuarioService;
 
 @RestController
@@ -25,7 +24,7 @@ public class CadastroController {
     @RequestMapping(value = "/new", consumes=MediaType.APPLICATION_JSON_VALUE, 
     					produces=MediaType.APPLICATION_JSON_VALUE, 
     					method = RequestMethod.POST)
-    public @ResponseBody ResponseEntity<Usuario> login(@RequestBody Usuario user) {
+    public @ResponseBody ResponseEntity<User> login(@RequestBody User user) {
 	   
 	  if (usuarioService.findUserByEmail(user) != null) {
 		  throw new ExistingEmail();
