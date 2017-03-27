@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import desafio.concrete.dao.IUsuarioDao;
+import desafio.concrete.dao.IUserDao;
 import desafio.concrete.model.User;
 
 @Service
@@ -15,7 +15,7 @@ public class UsuarioService {
 	private JwtService jwtService;
 	
     @Autowired
-    private IUsuarioDao dao;
+    private IUserDao dao;
 
     public UsuarioService() {
         super();

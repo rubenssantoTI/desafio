@@ -10,13 +10,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import desafio.concrete.config.PersistenceJPAConfig;
-import desafio.concrete.dao.UsuarioDao;
+import desafio.concrete.dao.UserDao;
 import desafio.concrete.model.User;
 import desafio.concrete.service.JwtService;
 import desafio.concrete.service.UsuarioService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { PersistenceJPAConfig.class, UsuarioService.class, UsuarioDao.class, JwtService.class }, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = { PersistenceJPAConfig.class, UsuarioService.class, UserDao.class, JwtService.class }, loader = AnnotationConfigContextLoader.class)
 public class LoginIntegrationTest {
 
 	@Autowired
